@@ -8,7 +8,7 @@ on property:ril.volte.stack.rcsuaproxy=1
 on property:ril.volte.stack.rcsuaproxy=0
 		stop volte_rcs_ua
 
-service volte_ua /vendor/bin/volte_ua
+service volte_ua /bin/volte_ua
     class core
     socket volte_ua stream 660 root system
     user root
@@ -16,7 +16,7 @@ service volte_ua /vendor/bin/volte_ua
     oneshot
     disabled
 
-service volte_stack /vendor/bin/volte_stack
+service volte_stack /bin/volte_stack
     class core
     socket volte_stack stream 660 root system
     user root
@@ -24,7 +24,7 @@ service volte_stack /vendor/bin/volte_stack
     oneshot
     disabled
 
-service volte_imcb /vendor/bin/volte_imcb
+service volte_imcb /bin/volte_imcb
     class core
     socket volte_imsa1 stream 660 root radio
     socket volte_imsa2 stream 660 root radio
@@ -39,7 +39,7 @@ service volte_imcb /vendor/bin/volte_imcb
 #
 # volte_rcs_ua specific system service and socket information
 #
-service volte_rcs_ua /vendor/bin/volte_rcs_ua
+service volte_rcs_ua /bin/volte_rcs_ua
     class core
     socket rcs_ua_proxy stream 666 root system
     user system

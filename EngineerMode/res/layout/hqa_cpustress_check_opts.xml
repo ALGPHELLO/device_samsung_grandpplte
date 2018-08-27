@@ -14,7 +14,7 @@
         <CheckBox android:id="@+id/hqa_cpu_main_force_core3_cb"
             android:layout_height="wrap_content"
             android:layout_width="fill_parent"/>
-        <CheckBox android:id="@+id/hqa_cpu_main_force_core4_cb"
+        <CheckBox android:id="@+id/hqa_cpu_main_force_corSM-G532F_cb"
             android:layout_height="wrap_content"
             android:layout_width="fill_parent"/>
         <CheckBox android:id="@+id/hqa_cpu_main_force_core5_cb"

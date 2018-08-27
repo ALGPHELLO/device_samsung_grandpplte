@@ -589,78 +589,78 @@ service adbd /sbin/adbd --root_seclabel=u:r:su:s0
 ## Custom service area (START)
 # Please add custom service below
 
-service thermal_manager /vendor/bin/thermal_manager
+service thermal_manager /bin/thermal_manager
     user root
 	group system
     oneshot
 
-service permission_check /vendor/bin/permission_check
+service permission_check /bin/permission_check
     user root
     group system radio
     oneshot
 
-service ccci_fsd /vendor/bin/ccci_fsd 0
+service ccci_fsd /bin/ccci_fsd 0
     user radio
     group radio system
     oneshot
 
-service ccci_mdinit /vendor/bin/ccci_mdinit 0
+service ccci_mdinit /bin/ccci_mdinit 0
     user system
     group radio system
     oneshot
 
-service ccci_rpcd /vendor/bin/ccci_rpcd 0
+service ccci_rpcd /bin/ccci_rpcd 0
     user radio
     group radio system
     oneshot
 
-service nvram_daemon /vendor/bin/nvram_daemon
+service nvram_daemon /bin/nvram_daemon
     class main
     user root
     group system
     oneshot
 
-service mdlogger /vendor/bin/mdlogger
+service mdlogger /bin/mdlogger
     class main
     user shell
     group shell system radio sdcard_rw inet
     disabled
     oneshot
 
-service dualmdlogger /vendor/bin/dualmdlogger
+service dualmdlogger /bin/dualmdlogger
     class main
     user shell
     group shell system radio sdcard_rw inet
     disabled
     oneshot
 
-service factory_no_image /vendor/bin/factory
+service factory_no_image /bin/factory
 
-service mobile_log_d /vendor/bin/mobile_log_d
+service mobile_log_d /bin/mobile_log_d
 	class main
 
-service emdlogger1 /vendor/bin/emdlogger1
+service emdlogger1 /bin/emdlogger1
     class main
     user shell
     group system shell radio sdcard_rw inet sdcard_r media_rw
     disabled
     oneshot
 
-service emdlogger2 /vendor/bin/emdlogger2
+service emdlogger2 /bin/emdlogger2
     class main
     user shell
     group system shell radio sdcard_rw inet sdcard_r media_rw
     disabled
     oneshot
 
-service emdlogger5 /vendor/bin/emdlogger5
+service emdlogger5 /bin/emdlogger5
     class main
     user shell
     group system shell radio sdcard_rw inet sdcard_r media_rw
     disabled
     oneshot
 
-service emdlogger6 /vendor/bin/emdlogger6
+service emdlogger6 /bin/emdlogger6
     class main
     user shell
     group system shell radio sdcard_rw inet sdcard_r media_rw
@@ -671,7 +671,7 @@ service emdlogger6 /vendor/bin/emdlogger6
 
 
 #statusd service
-service statusd /vendor/bin/statusd -f [/vendor/bin/flashlessd -m 0]
+service statusd /bin/statusd -f [/bin/flashlessd -m 0]
     socket statusd stream 660 radio radio
     user radio
     group radio cache inet misc system

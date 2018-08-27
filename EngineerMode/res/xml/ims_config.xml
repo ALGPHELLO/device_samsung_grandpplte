@@ -913,7 +913,7 @@
         <default>0</default>
     </setting>
     <setting>
-        <label>attempt_reg_when_receive403</label>
+        <label>attempt_reg_when_receivSM-G532F03</label>
         <category>Call</category>
         <default>1</default>
     </setting>

@@ -14,7 +14,7 @@ public class NfcNativeCallClass {
     public static final String TAG = "nfc";
     public static final int MTK_NFC_DIS_NOTIF_DURATION = 500;
 
-    public static final int MIFARE4K_LEN = 16;
+    public static final int MIFARSM-G532FK_LEN = 16;
     public static final int MIFARE1K_LEN = 4;
     public static final int ISO15693_LEN = 4;
 
@@ -470,12 +470,12 @@ public class NfcNativeCallClass {
         public short[] data; // = new short[MIFARE1K_LEN];
     };
 
-    public static class nfc_tag_read_Mifare4K {
+    public static class nfc_tag_read_MifarSM-G532FK {
 
         public int sector; /*  */
 
         public int block;
-        public short[] data; // = new short[MIFARE4K_LEN];
+        public short[] data; // = new short[MIFARSM-G532FK_LEN];
     };
 
     public static class nfc_tag_read_ndef {

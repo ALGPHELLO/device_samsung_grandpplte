@@ -1,15 +1,15 @@
 # inherit from the proprietary version
--include vendor/motorola/woods/BoardConfigVendor.mk
+-include vendor/samsung/grandpplte/BoardConfigVendor.mk
 
 
 # Disable NINJA
-#USE_NINJA := false
+USE_NINJA := false
 
 # Architecture
 FORCE_32_BIT := true
 
 # Platform
-TARGET_BOARD_PLATFORM := mt6737m
+TARGET_BOARD_PLATFORM := mt6737t
 TARGET_NO_BOOTLOADER := true
 
 # Architecture
@@ -38,15 +38,16 @@ TARGET_CPU_ABI_LIST := $(TARGET_CPU_ABI_LIST_64_BIT),$(TARGET_CPU_ABI_LIST_32_BI
 endif
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := mt6737m
+TARGET_BOOTLOADER_BOARD_NAME := mt6737t
 
 # Recovery
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 
 # Kernel
-BOARD_KERNEL_IMAGE_NAME := zImage-dtb
-TARGET_KERNEL_SOURCE := kernel/motorola/woods
+TARGET_PREBUILT_KERNEL := device/samsung/grandpplte/prebuilt/kernel
+BOARD_KERNEL_IMAGE_NAME := zImage
+TARGET_KERNEL_SOURCE := kernel/samsung/grandpplte
 BOARD_KERNEL_BASE := 0x40000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_RAMDISK_OFFSET := 0x04000000
@@ -54,7 +55,7 @@ BOARD_TAGS_OFFSET := 0xE000000
 ifeq ($(FORCE_32_BIT),true)
 ARCH := arm
 TARGET_KERNEL_ARCH := arm
-TARGET_KERNEL_CONFIG := woods_defconfig
+TARGET_KERNEL_CONFIG := grandpplte_defconfig
 BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,32N2 androidboot.selinux=permissive androidboot.selinux=disabled 
 BOARD_KERNEL_OFFSET := 0x00008000
 else
@@ -65,6 +66,9 @@ TARGET_USES_64_BIT_BINDER := true
 endif
 BOARD_MKBOOTIMG_ARGS := --kernel_offset $(BOARD_KERNEL_OFFSET) --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_TAGS_OFFSET)
 
+# Hack for building without kernel sources
+$(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr)
+
 # toolchain
 KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-gnu-7.x/bin
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-gnu-linux-androideabi-
@@ -72,14 +76,14 @@ TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-gnu-linux-androideabi-
 # make_ext4fs requires numbers in dec format
 BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216 
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16777216 
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2432696320
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 4698144768
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 3229614080
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 3900702720
 BOARD_CACHEIMAGE_PARTITION_SIZE := 419430400
 BOARD_FLASH_BLOCK_SIZE := 131072
 TARGET_KMODULES := true
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := Moto_E4,Moto E4,e4,E4,woods,woods _f
+TARGET_OTA_ASSERT_DEVICE := grandpplte,grandpplteser,SM-G532F
 
 # Disable memcpy opt (for audio libraries)
 TARGET_CPU_MEMCPY_OPT_DISABLE := true
@@ -92,7 +96,7 @@ BOARD_GLOBAL_CFLAGS += -DDISABLE_HW_ID_MATCH_CHECK
 
 
 # Display
-BOARD_EGL_CFG := /vendor/motorola/woods/vendor/lib/egl/egl.cfg
+BOARD_EGL_CFG := /vendor/samsung/grandpplte/vendor/lib/egl/egl.cfg
 USE_OPENGL_RENDERER:=true
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
@@ -123,7 +127,7 @@ TARGET_PROVIDES_INIT_RC := true
 
 # CMHW
 BOARD_USES_CYANOGEN_HARDWARE := true
-BOARD_HARDWARE_CLASS := device/motorola/woods/cmhw
+BOARD_HARDWARE_CLASS := device/samsung/grandpplte/cmhw
 
 # Fix video autoscaling on old OMX decoders
 TARGET_OMX_LEGACY_RESCALING := true
@@ -132,7 +136,7 @@ TARGET_OMX_LEGACY_RESCALING := true
 BACKLIGHT_PATH := /sys/class/leds/lcd-backlight/brightness
 
 # RIL
-BOARD_RIL_CLASS := ../../../device/motorola/woods/ril/
+BOARD_RIL_CLASS := ../../../device/samsung/grandpplte/ril/
 
 # GPS
 BOARD_GPS_LIBRARIES :=true
@@ -169,12 +173,12 @@ BOARD_HAVE_BLUETOOTH := true
 #BOARD_HAVE_BLUETOOTH_MTK := true
 #BOARD_BLUETOOTH_DOES_NOT_USE_RFKILL := true
 #BOARD_BLUETOOTH_BDROID_HCILP_INCLUDED := 0
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/motorola/woods/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/grandpplte/bluetooth
 
 TARGET_LDPRELOAD += mtk_symbols.so
 
 # CWM
-TARGET_RECOVERY_FSTAB := device/motorola/woods/rootdir/recovery.fstab
+TARGET_RECOVERY_FSTAB := device/samsung/grandpplte/rootdir/recovery.fstab
 BOARD_HAS_NO_SELECT_BUTTON := true
 
 # TWRP stuff
@@ -193,8 +197,8 @@ TW_HAS_DOWNLOAD_MODE := true
 TW_EXCLUDE_SUPERSU := true
 TW_USE_TOOLBOX := true
 
-TARGET_SYSTEM_PROP := device/motorola/woods/system.prop
-TARGET_SPECIFIC_HEADER_PATH := device/motorola/woods/include
+TARGET_SYSTEM_PROP := device/samsung/grandpplte/system.prop
+TARGET_SPECIFIC_HEADER_PATH := device/samsung/grandpplte/include
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun/file
 
 ifneq ($(FORCE_32_BIT),yes)
@@ -205,7 +209,7 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.zygote=zygote64_32
 endif
 
 BOARD_SEPOLICY_DIRS := \
-       device/motorola/woods/sepolicy
+       device/samsung/grandpplte/sepolicy
 
 # Seccomp filter
-BOARD_SECCOMP_POLICY += device/motorola/woods/seccomp
+BOARD_SECCOMP_POLICY += device/samsung/grandpplte/seccomp

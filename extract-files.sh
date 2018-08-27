@@ -1,7 +1,7 @@
 #!/bin/bash
 
-export DEVICE=woods
-export VENDOR=motorola
+export DEVICE=grandpplte
+export VENDOR=samsung
 
 if [ $# -eq 0 ]; then
   SRC=adb

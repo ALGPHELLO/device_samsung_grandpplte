@@ -1,16 +1,16 @@
 mkdir /data/misc/sensors 0664 system system
 
-service msensord /vendor/bin/msensord
+service msensord /bin/msensord
     user system
     group system
     oneshot
 
-service akmd8963 /vendor/bin/akmd8963
+service akmd8963 /bin/akmd8963
     disabled
     user system
     group system
 
-service mc6420d /vendor/bin/mc6420d
+service mc6420d /bin/mc6420d
     disabled
     user system
     group system

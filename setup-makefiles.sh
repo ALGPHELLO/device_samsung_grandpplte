@@ -1,7 +1,7 @@
 #!/bin/bash
 
-DEVICE=woods
-VENDOR=motorola
+DEVICE=grandpplte
+VENDOR=samsung
 
 OUTDIR=vendor/$VENDOR/$DEVICE
 MAKEFILE=../../../$OUTDIR/$DEVICE-vendor-blobs.mk

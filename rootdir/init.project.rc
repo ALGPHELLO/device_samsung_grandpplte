@@ -24,11 +24,11 @@ on post-fs-data
     #restore necessary files into data partition
     mkdir /data/thh 0770 root root
     mkdir /data/thh/tee_00 0770 root root
-    copy /cache/thh/tee_00/thh_mt6737_woods.certs /data/thh/tee_00/thh_mt6737_woods.certs
-    copy /cache/thh/tee_00/thh_mt6737_woods.cfg /data/thh/tee_00/thh_mt6737_woods.cfg
+    copy /cache/thh/tee_00/thh_mt6737_grandpplte.certs /data/thh/tee_00/thh_mt6737_grandpplte.certs
+    copy /cache/thh/tee_00/thh_mt6737_grandpplte.cfg /data/thh/tee_00/thh_mt6737_grandpplte.cfg
     mkdir /data/local 0751 root root
     mkdir /data/local/tmp 0771 shell shell
-    copy /cache/local/tmp/thh_mt6737_woods.cfg /data/local/tmp/thh_mt6737_woods.cfg
+    copy /cache/local/tmp/thh_mt6737_grandpplte.cfg /data/local/tmp/thh_mt6737_grandpplte.cfg
 
 
 #add by yangchao
@@ -206,20 +206,20 @@ service fuse_usbotg /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/
     disabled
 
 
-service atci_service /vendor/bin/atci_service
+service atci_service /bin/atci_service
 	socket atci-service stream 660 radio system 
 	socket atci-serv-fw stream 660 radio system 
 	user root 
         disabled
 	group radio system  
 	
-service atcid-daemon-u /vendor/bin/atcid
+service atcid-daemon-u /bin/atcid
 	user system
 	group radio system media
 	disabled
 	oneshot
 
-service atcid-daemon-e /vendor/bin/atcid
+service atcid-daemon-e /bin/atcid
 	user root
 	group radio system
 	disabled
@@ -240,7 +240,7 @@ on early_property:ro.build.type=eng
 start atci_service
 start atcid-daemon-e
 
-service audio-daemon /vendor/bin/audiocmdservice_atci
+service audio-daemon /bin/audiocmdservice_atci
     class main
     socket atci-audio stream 660 media system
     user media

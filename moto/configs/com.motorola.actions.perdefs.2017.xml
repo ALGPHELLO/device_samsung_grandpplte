@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!--
-  ~ Copyright (C) 2016 Motorola Mobility LLC,
+  ~ Copyright (C) 2016 samsung Mobility LLC,
   ~ All Rights Reserved.
-  ~ Motorola Mobility Confidential Restricted.
+  ~ samsung Mobility Confidential Restricted.
   -->
 
 <permissions>
-    <feature name="com.motorola.actions" />
-    <feature name="com.motorola.actions.2017" />
+    <feature name="com.samsung.actions" />
+    <feature name="com.samsung.actions.2017" />
 </permissions>

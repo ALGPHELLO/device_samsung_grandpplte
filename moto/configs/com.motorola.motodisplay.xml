@@ -2,9 +2,9 @@
 
 <permissions>
     <!-- Uses the Doze architecture of MotoDisplay. -->
-    <feature name="com.motorola.motodisplay.doze.glimpse"/>
+    <feature name="com.samsung.motodisplay.doze.glimpse"/>
 
     <!-- Feature for 2017 products. -->
-    <feature name="com.motorola.motodisplay.6.0"/>
+    <feature name="com.samsung.motodisplay.6.0"/>
 </permissions>
 

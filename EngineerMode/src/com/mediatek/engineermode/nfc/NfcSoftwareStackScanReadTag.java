@@ -266,14 +266,14 @@ public class NfcSoftwareStackScanReadTag extends Activity
         }
 
         int block =
-            ((NfcNativeCallClass.nfc_tag_read_Mifare4K) (resp.target)).block;
+            ((NfcNativeCallClass.nfc_tag_read_MifarSM-G532FK) (resp.target)).block;
         mEditBlock.setText(String.valueOf(block));
         int sector =
-            ((NfcNativeCallClass.nfc_tag_read_Mifare4K) (resp.target)).sector;
+            ((NfcNativeCallClass.nfc_tag_read_MifarSM-G532FK) (resp.target)).sector;
         mEditSector.setText(String.valueOf(sector));
 
         short[] data =
-            ((NfcNativeCallClass.nfc_tag_read_Mifare4K) (resp.target)).data;
+            ((NfcNativeCallClass.nfc_tag_read_MifarSM-G532FK) (resp.target)).data;
         mEditSectorInfo.setText(NfcUtils.printArray(data));
 
         return NfcCommonDef.ERROR_OK;

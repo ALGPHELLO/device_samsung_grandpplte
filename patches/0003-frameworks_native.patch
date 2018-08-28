@@ -40,7 +40,7 @@ Change-Id: I105c019d026520bd02314da20ecbb7f15435e7a9
  create mode 100644 libs/ui/mediatek/RefBaseDump.cpp
 
 diff --git a/include/gui/BufferQueueCore.h b/include/gui/BufferQueueCore.h
-index 4e54ddb..SM-G532Fc9fad 100644
+index 4e54ddb..e4c9fad 100644
 --- a/include/gui/BufferQueueCore.h
 +++ b/include/gui/BufferQueueCore.h
 @@ -185,10 +185,11 @@ private:
@@ -1160,7 +1160,7 @@ index 4234db8..b402a31 100644
          __eglMustCastToProperFunctionPointerType* curr =
              (__eglMustCastToProperFunctionPointerType*)egl;
 diff --git a/opengl/libs/EGL/Loader.h b/opengl/libs/EGL/Loader.h
-index 04a8SM-G532F1..bc5a1c7 100644
+index 04a8e41..bc5a1c7 100644
 --- a/opengl/libs/EGL/Loader.h
 +++ b/opengl/libs/EGL/Loader.h
 @@ -24,9 +24,9 @@

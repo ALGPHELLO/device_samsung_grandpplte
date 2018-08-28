@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<permissions>
-    <library name="com.samsung.timeweatherwidget.library"
-            file="/system/framework/com.samsung.timeweatherwidget.library.jar" />
-</permissions>

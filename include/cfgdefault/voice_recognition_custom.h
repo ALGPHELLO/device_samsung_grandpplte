@@ -17,7 +17,7 @@
     "Reserve1",\
     "Reserve2",\
     "Reserve3",\
-    "ReservSM-G532F",\
+    "Reserve4",\
     "Reserve5"
     
 #define DEFAULT_COMMAND_NUM_PER_LAN \

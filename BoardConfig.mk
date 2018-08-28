@@ -45,7 +45,7 @@ TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 
 # Kernel
-TARGET_PREBUILT_KERNEL := device/samsung/grandpplte/prebuilt/kernel
+TARGET_PREBUILT_KERNEL := device/samsung/grandpplte/prebuilt/zImage
 BOARD_KERNEL_IMAGE_NAME := zImage
 TARGET_KERNEL_SOURCE := kernel/samsung/grandpplte
 BOARD_KERNEL_BASE := 0x40000000
@@ -66,12 +66,9 @@ TARGET_USES_64_BIT_BINDER := true
 endif
 BOARD_MKBOOTIMG_ARGS := --kernel_offset $(BOARD_KERNEL_OFFSET) --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_TAGS_OFFSET)
 
-# Hack for building without kernel sources
-$(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr)
-
 # toolchain
-KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-gnu-7.x/bin
-TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-gnu-linux-androideabi-
+KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-4.8/bin
+TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-eabi-
 
 # make_ext4fs requires numbers in dec format
 BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216 
@@ -105,7 +102,7 @@ PRESENT_TIME_OFFSET_FROM_VSYNC_NS := 0
 #MAX_VIRTUAL_DISPLAY_DIMENSION := 1
 MTK_HWC_SUPPORT := yes
 MTK_HWC_VERSION := 1.4.1
-MTK_GPU_VERSION := mali midgard r12p1
+MTK_GPU_VERSION := mali midgard r7p0
 OVERRIDE_RS_DRIVER := libRSDriver_mtk.so
 
 # Mediatek support
@@ -213,3 +210,6 @@ BOARD_SEPOLICY_DIRS := \
 
 # Seccomp filter
 BOARD_SECCOMP_POLICY += device/samsung/grandpplte/seccomp
+
+# Hack for building without kernel sources
+$(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr)

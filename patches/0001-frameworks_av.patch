@@ -1144,7 +1144,7 @@ index 2d7cbdd..5f6b23d 100644
  };
  
 diff --git a/services/audiopolicy/common/managerdefinitions/Android.mk b/services/audiopolicy/common/managerdefinitions/Android.mk
-index 69d84SM-G532F..eb75220 100644
+index 69d84e4..eb75220 100644
 --- a/services/audiopolicy/common/managerdefinitions/Android.mk
 +++ b/services/audiopolicy/common/managerdefinitions/Android.mk
 @@ -73,6 +73,15 @@ LOCAL_MULTILIB := $(AUDIOSERVER_MULTILIB)
